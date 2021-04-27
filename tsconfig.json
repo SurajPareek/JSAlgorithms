@@ -10,8 +10,6 @@
     "sourceMap": true
   },
   "exclude": [
-    "node_modules",
-    "src/tests",
-    "__tests__"
+    "node_modules"
   ]
 }
