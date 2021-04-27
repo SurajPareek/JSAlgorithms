@@ -4,18 +4,20 @@ const same = (arr1: Array<number>, arr2: Array<number>) => {
     }
 
     let frequencyMap = {};
+    let sqMap = {};
+
     arr1.forEach(n => {
         let i = n * n;
-        frequencyMap[i] = (frequencyMap[i] !== undefined && frequencyMap[i].count) ? frequencyMap[i].count++ : { count: 1 };
+        frequencyMap[i] = (frequencyMap[i] || 0) + 1;
     });
-    let sqMap = {};
+    
     arr2.forEach(i => {
-        sqMap[i] = (sqMap[i] !== undefined && sqMap[i].count) ? sqMap[i].count++ : { count: 1 };
+        sqMap[i] = (sqMap[i] || 0) + 1;
     });
 
     for (let i = 0; i < arr2.length; i++) {
         let v = arr2[i];
-        if (sqMap[v] && frequencyMap[v] && sqMap[v].count !== frequencyMap[v].count) {
+        if (sqMap[v] !== frequencyMap[v]) {
             return false;
         }
     }
