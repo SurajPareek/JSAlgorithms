@@ -1,5 +1,8 @@
-import { Anagram } from "./anagram";
+//import { Anagram } from "./anagram";
+import { AnagramRefactor } from "./anagram-refactor";
 
+
+const Anagram = AnagramRefactor;
 
 beforeAll(() => {
     jest.spyOn(console, "log").mockImplementation(() => { });
